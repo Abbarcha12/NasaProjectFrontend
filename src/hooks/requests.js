@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000"
+const API_URL = "http://localhost:8000/v1"
 
 async function httpGetPlanets() {
 
@@ -23,6 +23,7 @@ async function httpGetLaunches() {
 
 async function httpSubmitLaunch(launch) {
   try {
+    console.log(launch)
     return await fetch(`${API_URL}/launches`, {
       method: "post",
       headers: {
@@ -41,6 +42,7 @@ async function httpSubmitLaunch(launch) {
 }
 
 async function httpAbortLaunch(id) {
+  console.log(id)
   try {
     return await fetch(`${API_URL}/launches/${id}`, {
       method: "delete"
